@@ -69,3 +69,6 @@ WWW     IN      CNAME   granz.channel.d19.com.
 
 service bind9 restart
 ```
+
+### Output
+<img width="1552" alt="Screenshot 2023-11-16 at 14 10 13" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/17c8779c-4ba7-489b-b0ba-578d8894d6a9">
