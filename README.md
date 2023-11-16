@@ -1,6 +1,6 @@
 # Jarkom-Modul-3-D19-2023
 
-Adrian Ismu
+Adrian Ismu Arifianto - 5025211116
 <br>
 Ahmad Rafif Hikmatiar - 5025211247
 
@@ -209,3 +209,17 @@ service nginx restart
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/b02b2eb9-a709-48bd-8cde-cbdca4d4bd24">
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/5e8852a6-6280-49e3-a6d8-759c3c44e523">
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/5e5333c9-a9b2-4795-9a18-a4290fb7dec6">
+
+## 8
+## 9
+## 10
+## 11
+## 12
+## 13
+## 14
+## 15
+## 16
+## 17
+## 18
+## 19
+## 20
