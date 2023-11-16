@@ -104,3 +104,30 @@ Melakukan testing dengan cara ping google dari client dengan nameserver mengarah
 
 ### Output
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/7e118cf5-d35a-4934-8404-d9a7ad0c43d8">
+
+## 5
+Set default lease time dan max lease time dari switch 3 adalah 180 dan 5760, sedangkan untuk switch 4 yaitu 720 dan 5760
+### Script
+```
+subnet 10.31.3.0 netmask 255.255.255.0 {
+    range 10.31.3.16 10.31.3.32;
+    range 10.31.3.64 10.31.3.80;
+    option routers 10.31.3.1;
+    option broadcast-address 10.31.3.255;
+    option domain-name-servers 10.31.1.3;
+    default-lease-time 180;
+    max-lease-time 5760;
+}
+
+subnet 10.31.4.0 netmask 255.255.255.0 {
+    range 10.31.4.12 10.31.4.20;
+    range 10.31.4.160 10.31.4.168;
+    option routers 10.31.4.1;
+    option broadcast-address 10.31.4.255;
+    option domain-name-servers 10.31.1.3;
+    default-lease-time 720;
+    max-lease-time 5760;
+}
+```
+### Output
+<img width="584" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/c58b81f4-5dd9-4810-bc8d-dbca8c8260dc">
