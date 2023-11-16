@@ -97,3 +97,10 @@ subnet 10.31.4.0 netmask 255.255.255.0 {
 }
 ```
 Jadi, untuk node yang mempunyai ip 10.31.4.x atau melewati switch 4 akan mendapat ip random dengan constraint yang sudah ditentukan
+
+## 4
+Melakukan testing dengan cara ping google dari client dengan nameserver mengarah ke Heiter (DNS Server)
+<img width="805" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/5cad5da6-52ea-49b9-8c29-e3d34d6b91a7">
+
+### Output
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/7e118cf5-d35a-4934-8404-d9a7ad0c43d8">
