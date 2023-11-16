@@ -72,3 +72,28 @@ service bind9 restart
 
 ### Output
 <img width="1552" alt="Screenshot 2023-11-16 at 14 10 13" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/17c8779c-4ba7-489b-b0ba-578d8894d6a9">
+
+## 2
+### Script
+Berikut adalah script.sh untuk node Himmel
+
+```
+subnet 10.31.3.0 netmask 255.255.255.0 {
+    range 10.31.3.16 10.31.3.32;
+    range 10.31.3.64 10.31.3.80;
+    option routers 10.31.3.1;
+}
+```
+Jadi, untuk node yang mempunyai ip 10.31.3.x atau melewati switch 3 akan mendapat ip random dengan constraint yang sudah ditentukan
+
+## 3
+### Script
+Berikut adalah script.sh untuk node Himmel
+```
+subnet 10.31.4.0 netmask 255.255.255.0 {
+    range 10.31.4.12 10.31.4.20;
+    range 10.31.4.160 10.31.4.168;
+    option routers 10.31.4.1;
+}
+```
+Jadi, untuk node yang mempunyai ip 10.31.4.x atau melewati switch 4 akan mendapat ip random dengan constraint yang sudah ditentukan
