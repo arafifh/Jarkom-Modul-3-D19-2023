@@ -131,3 +131,51 @@ subnet 10.31.4.0 netmask 255.255.255.0 {
 ```
 ### Output
 <img width="584" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/c58b81f4-5dd9-4810-bc8d-dbca8c8260dc">
+
+## 6
+Dilakukan testing dengan cara lynx ke setiap php worker yaitu Lugner, Linie, Lawine
+### Script
+```
+apt-get update
+apt-get install nginx php7.3 php-fpm ca-certificates openssl unzip wget -y
+
+# wget dalam directory root agar tersimpan terus
+unzip /root/granz.channel.d19.com.zip
+
+mv modul-3 /var/www/granz.channel.d19.com
+
+echo '
+server {
+	listen 80;
+
+	root /var/www/granz.channel.d19.com;
+	index index.php index.html index.htm; server_name granz.channel.d19.com;
+
+	location / {
+	try_files $uri $uri/ /index.php?$query_string;
+	}
+	
+	# pass PHP scripts to FastCGI server location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+	fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
+	}
+	 
+	location ~ /\.ht {
+	deny all;
+	}
+	error_log /var/log/nginx/granz_error.log; 
+	access_log /var/log/nginx/granz_access.log;
+	}
+' > /etc/nginx/sites-available/granz.channel.d19.com
+
+rm -rf /etc/nginx/sites-enabled/default
+
+ln -s /etc/nginx/sites-available/granz.channel.d19.com /etc/nginx/sites-enabled
+
+service php7.3-fpm start
+service nginx restart
+```
+### Output
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/913f41cd-e159-4953-b816-49974990900c">
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/837da71f-2aa6-4085-a4f0-59b269b581b7">
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/e38f4bd5-849d-4f94-a9f3-957ce64f21c1">
