@@ -211,6 +211,34 @@ ab -n 1000 -c 100 http://granz.channel.d19.com/
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/9bded79e-a7cf-4086-b1f1-2e140ccf9a1b">
 
 ## 8
+### Robin Round
+```
+upstream backend {
+	server 10.31.3.4	#IP Lawine
+	server 10.31.3.3	#IP Linie
+	server 10.41.3.2	#IP Lugner
+```
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/9bded79e-a7cf-4086-b1f1-2e140ccf9a1b">
+
+### Least-Connection
+```
+upstream backend {
+	least_conn;
+	server 10.31.3.4	#IP Lawine
+	server 10.31.3.3	#IP Linie
+	server 10.41.3.2	#IP Lugner
+```
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/42e14c5b-8a49-458b-9a58-2d65b624ec3a">
+
+### IP Hash
+```
+upstream backend {
+	ip_hash;
+	server 10.31.3.4	#IP Lawine
+	server 10.31.3.3	#IP Linie
+	server 10.41.3.2	#IP Lugner
+```
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/909b7a09-c51d-496a-bc64-fe7aa191bb29">
 
 ## 9
 ## 10
