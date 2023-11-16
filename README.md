@@ -181,7 +181,6 @@ service nginx restart
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/e38f4bd5-849d-4f94-a9f3-957ce64f21c1">
 
 ## 7
-Set terlebih dahulu weight dari setiap workernya dan nantinya dari load balancer akan lebih sering untuk diarahkan ke Lawine karena weightnya paling besar
 ### Script
 ```
 echo '
@@ -206,11 +205,13 @@ rm /etc/nginx/sites-enabled/default
 service nginx restart
 ```
 ### Output
-<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/b02b2eb9-a709-48bd-8cde-cbdca4d4bd24">
-<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/5e8852a6-6280-49e3-a6d8-759c3c44e523">
-<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/5e5333c9-a9b2-4795-9a18-a4290fb7dec6">
+```
+ab -n 1000 -c 100 http://granz.channel.d19.com/
+```
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/9bded79e-a7cf-4086-b1f1-2e140ccf9a1b">
 
 ## 8
+
 ## 9
 ## 10
 ## 11
