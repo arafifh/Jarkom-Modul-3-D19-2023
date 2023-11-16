@@ -179,3 +179,33 @@ service nginx restart
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/913f41cd-e159-4953-b816-49974990900c">
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/837da71f-2aa6-4085-a4f0-59b269b581b7">
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/e38f4bd5-849d-4f94-a9f3-957ce64f21c1">
+
+## 7
+Set terlebih dahulu weight dari setiap workernya dan nantinya dari load balancer akan lebih sering untuk diarahkan ke Lawine karena weightnya paling besar
+### Script
+```
+echo '
+upstream backend {
+	server 10.31.3.4 weight=25;	#IP Lawine
+	server 10.31.3.3 weight=8;	#IP Linie
+	server 10.31.3.2 weight=1;	#IP Lugner
+}
+
+server {
+	listen 80;
+	server_name granz.channel.d19.com;
+
+	location / {
+        proxy_pass http://worker;
+    }
+} > /etc/nginx/sites-available/granz.channel.d19.com
+
+ln -s /etc/nginx/sites-available/granz.channel.d19.com /etc/nginx/sites-enabled/
+rm /etc/nginx/sites-enabled/default
+
+service nginx restart
+```
+### Output
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/b02b2eb9-a709-48bd-8cde-cbdca4d4bd24">
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/5e8852a6-6280-49e3-a6d8-759c3c44e523">
+<img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/5e5333c9-a9b2-4795-9a18-a4290fb7dec6">
