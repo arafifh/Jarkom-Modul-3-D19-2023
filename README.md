@@ -750,7 +750,8 @@ mkdir /etc/nginx/rahasisakita
 htpasswd -c /etc/nginx/rahasisakita/htpasswd netics
 ```
 ![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/0a1f770a-8d61-4afd-8f9d-03b7e1b749e0)
-password yang dimasukkan adalah `ajkd19`
+
+Password yang dimasukkan adalah `ajkd19`
 
 Setelah itu, command berikut pada `Eisen`
 ```bash
@@ -770,12 +771,83 @@ auth_basic_user_file /etc/nginx/rahasisakita/htpasswd;
 ![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/8be94213-9532-4988-8a75-7136e02c23b3)
 
 ## 11
+### Soal
+> Lalu buat untuk setiap request yang mengandung /its akan di proxy passing menuju halaman https://www.its.ac.id. hint: (proxy_pass)
+### Script
+Masukkan script berikut ke `/etc/nginx/sites-available/lb_php` pada `Eisen`
+```
+location /its {
+proxy_pass https://www.its.ac.id; 
+proxy_set_header Host $host; 
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
+proxy_set_header X-Forwarded-Proto $scheme;
+}
+```
+### Output
 ## 12
+### Soal
+### Script
+```bash
+location / {
+    allow 192.173.3.69;
+    allow 192.173.3.70;
+    allow 192.173.4.167;
+    allow 192.173.4.168;
+    deny all;
+    proxy_pass http://worker;
+}
+```
+### Output
 ## 13
+### Soal
+### Script
+```
+echo '
+[mysqld]
+skip-networking=0
+skip-bind-address
+' > /etc/mysql/my.cnf
+```
+
+```SQL
+CREATE USER 'kelompokd19'@'%' IDENTIFIED BY 'passwordd19';
+CREATE USER 'kelompokd19'@'localhost' IDENTIFIED BY 'passwordd19'; 
+CREATE DATABASE dbkelompokd19;
+GRANT ALL PRIVILEGES ON *.* TO 'kelompokd19'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'kelompokd19'@'localhost'; 
+FLUSH PRIVILEGES;
+exit
+```
+
+### Output
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/4c42b067-dd53-474f-8f1c-e45d49928c48)
+
 ## 14
+### Soal
+### Script
+### Output
 ## 15
+### Soal
+### Script
+### Output
 ## 16
+### Soal
+### Script
+### Output
 ## 17
+### Soal
+### Script
+### Output
 ## 18
+### Soal
+### Script
+### Output
 ## 19
+### Soal
+### Script
+### Output
 ## 20
+### Soal
+### Script
+### Output
