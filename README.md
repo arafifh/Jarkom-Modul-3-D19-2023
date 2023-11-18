@@ -1,8 +1,11 @@
 # Jarkom-Modul-3-D19-2023
 
-Adrian Ismu Arifianto - 5025211116
-<br>
-Ahmad Rafif Hikmatiar - 5025211247
+## Anggota Kelompok
+| Nama | NRP |
+|---------------------------|------------|
+|Adrian Ismu Arifianto | 5025211116 |
+|Ahmad Rafif Hikmatiar | 5025211247 |
+
 
 ## 1
 ### Script
