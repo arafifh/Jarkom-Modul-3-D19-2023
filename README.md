@@ -435,13 +435,7 @@ ln -s /etc/nginx/sites-available/granz.channel.d19.com /etc/nginx/sites-enabled
 service php7.3-fpm start
 service nginx restart
 ```
-- **Frieren**
-```
-auto eth0
-iface eth0 inet dhcp
-hwaddress ether a6:a1:b9:74:6c:d8
 
-```
 - **Flamme, Frieren, Fern**
 ```bash
 echo nameserver 192.168.122.1 > /etc/resolv.conf
@@ -477,7 +471,7 @@ composer install
 cp .env.example .env
 ```
 - **Client**
-```
+```bash
 apt-get update
 apt-get install lynx -y
 apt-get install dnsutils -y
