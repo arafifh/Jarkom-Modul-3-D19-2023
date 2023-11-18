@@ -722,7 +722,53 @@ upstream backend {
 <img width="1552" alt="image" src="https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/89500557/909b7a09-c51d-496a-bc64-fe7aa191bb29">
 
 ## 9
+### Soal
+> Dengan menggunakan algoritma Round Robin, lakukan testing dengan menggunakan 3 worker, 2 worker, dan 1 worker sebanyak 100 request dengan 10 request/second, kemudian tambahkan grafiknya pada grimoire.
+
+### Script
+Jalankan command berikut pada client
+```bash
+ab -n 100 -c 10 http://www.granz.channel.d19.com/ 
+```
+### Output
+#### 3 Workers
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/20e1904e-f9b9-47ed-8b97-a60993bccc12)
+> Requests per second:    1768.10 [#/sec] (mean)
+#### 2 Workers
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/2cbc1454-0f7d-44e5-a4ae-080f099014ee)
+> Requests per second:    2182.18 [#/sec] (mean)
+#### 1 Worker
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/9c8510d4-17b8-448d-a611-4bc5ede327e6)
+> Requests per second:    2552.10 [#/sec] (mean)
+
 ## 10
+### Soal
+> Selanjutnya coba tambahkan konfigurasi autentikasi di LB dengan dengan kombinasi username: “netics” dan password: “ajkyyy”, dengan yyy merupakan kode kelompok. Terakhir simpan file “htpasswd” nya di /etc/nginx/rahasisakita/
+### Script
+```bash
+mkdir /etc/nginx/rahasisakita
+htpasswd -c /etc/nginx/rahasisakita/htpasswd netics
+```
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/0a1f770a-8d61-4afd-8f9d-03b7e1b749e0)
+password yang dimasukkan adalah `ajkd19`
+
+Setelah itu, command berikut pada `Eisen`
+```bash
+auth_basic "Restricted Content";
+auth_basic_user_file /etc/nginx/rahasisakita/htpasswd;
+```
+
+### Output
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/1a20a591-b2e7-4a92-b175-fccd07c8a658)
+
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/831058b9-acc5-4005-b725-1504d7273ee2)
+
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/24f7428b-799a-4840-a2bf-d51f4206d494)
+
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/1bb8e896-a0b6-4881-b145-c7b690491234)
+
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/8be94213-9532-4988-8a75-7136e02c23b3)
+
 ## 11
 ## 12
 ## 13
