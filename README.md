@@ -789,6 +789,7 @@ proxy_set_header X-Forwarded-Proto $scheme;
 
 ## 12
 ### Soal
+
 ### Script
 ```bash
 location / {
