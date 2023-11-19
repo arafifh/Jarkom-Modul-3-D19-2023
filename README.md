@@ -987,18 +987,135 @@ ab -n 100 -c 10 -p register.json -T application/json http://10.31.4.2:8003/api/a
 
 ## 16
 ### Soal
+> Granz Channel memiliki beberapa endpoint yang harus ditesting sebanyak 100 request dengan 10 request/second. Tambahkan response dan hasil testing pada grimoire. Untuk POST /api/auth/login
 ### Script
-### Output
+Kami menggunakan `Apache Benchmark` pada salah satu worker yaitu `Revolte` sebagai berikut
+```bash
+ab -n 100 -c 10 -p login.json -T application/json http://10.31.4.2:8003/api/auth/login
+```
+
 ## 17
 ### Soal
+> Untuk memastikan ketiganya bekerja sama secara adil untuk mengatur Granz Channel maka implementasikan Proxy Bind pada Eisen untuk mengaitkan IP dari Frieren, Flamme, dan Fern.
 ### Script
+Kami menerapkan Load Balancing dengan menggunakan konfigurasi Nginx untuk memastikan bahwa tiga worker beroperasi secara adil dengan pembagian beban kerja yang merata sebagai berikut.
+```
+upstream laravel {
+ 	server 10.31.4.2:8003; #IP Friere
+ 	server 10.31.4.3:8002; #IP Flame
+    	server 10.31.4.4:8001; #IP Fern
+}
+
+ server {
+    listen 80;
+    server_name riegel.canyon.d19.com www.riegel.canyon.d19.com;
+
+ 	location /php {
+		 proxy_pass http://laravel;
+ 	} > /etc/nginx/sites-available/laravel
+
+ln -s /etc/nginx/sites-available/laravel /etc/nginx/sites-enabled/laravel
+
+service nginx restart
+```
+Setelah itu, lakukan testing pada client Revolte dengan menjalankan perintah berikut
+```
+ab -n 100 -c 10 -p login.json -T application/json http://www.riegel.canyon.d19.com/api/auth/login
+```
 ### Output
 ## 18
 ### Soal
+> Untuk meningkatkan performa dari Worker, coba implementasikan PHP-FPM pada Frieren, Flamme, dan Fern. Untuk testing kinerja naikkan -> pm.max_children, pm.start_servers, pm.min_spare_servers, pm.max_spare_servers sebanyak tiga percobaan dan lakukan testing sebanyak 100 request dengan 10 request/second kemudian berikan hasil analisisnya pada Grimoire.
 ### Script
+Setiap worker akan memiliki empat konfigurasi berbeda terkait `package manager` yang akan diuji dalam proses pengujian.
+#### Script 1
+```bash
+echo '[www]
+user = www-data
+group = www-data
+listen = /run/php/php8.0-fpm.sock
+listen.owner = www-data
+listen.group = www-data
+php_admin_value[disable_functions] = exec,passthru,shell_exec,system
+php_admin_flag[allow_url_fopen] = off
+
+; Choose how the process manager will control the number of child processes.
+
+pm = dynamic
+pm.max_children = 5
+pm.start_servers = 2
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3' > /etc/php/8.0/fpm/pool.d/www.conf
+
+service php8.0-fpm restart
+```
+#### Script 2
+```bash
+echo '[www]
+user = www-data
+group = www-data
+listen = /run/php/php8.0-fpm.sock
+listen.owner = www-data
+listen.group = www-data
+php_admin_value[disable_functions] = exec,passthru,shell_exec,system
+php_admin_flag[allow_url_fopen] = off
+
+; Choose how the process manager will control the number of child processes.
+
+pm = dynamic
+pm.max_children = 15
+pm.start_servers = 5
+pm.min_spare_servers = 3
+pm.max_spare_servers = 10' > /etc/php/8.0/fpm/pool.d/www.conf
+
+service php8.0-fpm restart
+```
+#### Script 3
+```bash
+echo '[www]
+user = www-data
+group = www-data
+listen = /run/php/php8.0-fpm.sock
+listen.owner = www-data
+listen.group = www-data
+php_admin_value[disable_functions] = exec,passthru,shell_exec,system
+php_admin_flag[allow_url_fopen] = off
+
+; Choose how the process manager will control the number of child processes.
+
+pm = dynamic
+pm.max_children = 30
+pm.start_servers = 7
+pm.min_spare_servers = 5
+pm.max_spare_servers = 15' > /etc/php/8.0/fpm/pool.d/www.conf
+
+service php8.0-fpm restart
+```
+#### Script 4
+```
+echo '[www]
+user = www-data
+group = www-data
+listen = /run/php/php8.0-fpm.sock
+listen.owner = www-data
+listen.group = www-data
+php_admin_value[disable_functions] = exec,passthru,shell_exec,system
+php_admin_flag[allow_url_fopen] = off
+
+; Choose how the process manager will control the number of child processes.
+
+pm = dynamic
+pm.max_children = 75
+pm.start_servers = 10
+pm.min_spare_servers = 5
+pm.max_spare_servers = 20' > /etc/php/8.0/fpm/pool.d/www.conf
+
+service php8.0-fpm restart
+```
 ### Output
 ## 19
 ### Soal
+
 ### Script
 ### Output
 ## 20
