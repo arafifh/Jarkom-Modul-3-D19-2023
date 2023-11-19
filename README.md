@@ -841,6 +841,11 @@ exit
 
 ### Output
 ![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/4c42b067-dd53-474f-8f1c-e45d49928c48)
+Lakukan pengecekan database pada salah satu Laravel Worker dengan cara sebagai berikut
+```bash
+mariadb --host=10.31.2.3 --port=3306   --user=kelompokd19 --password=passwordd19 dbkelompokd19 -e "SHOW DATABASES;"
+```
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/ce959be4-b991-41b4-930b-b87843643a46)
 
 ## 14
 ### Soal
