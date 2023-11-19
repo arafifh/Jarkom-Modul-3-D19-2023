@@ -993,9 +993,10 @@ ab -n 100 -c 10 -p register.json -T application/json http://10.31.4.2:8003/api/a
 ### Script
 Kami menggunakan `Apache Benchmark` pada salah satu worker yaitu `Revolte` sebagai berikut
 ```bash
-ab -n 100 -c 10 -p login.json -T application/json http://10.31.4.2:8003/api/auth/login
+ab -n 100 -c 10 -p register.json -T application/json http://10.31.4.2:8003/api/auth/login
 ```
 ### Output
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/9332fe55-36c0-4f5f-94cd-139709586b19)
 
 ## 17
 ### Soal
