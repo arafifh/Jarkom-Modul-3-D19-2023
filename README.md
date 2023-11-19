@@ -995,9 +995,16 @@ ab -n 100 -c 10 -p login.json -T application/json http://10.31.4.2:8003/api/auth
 ```
 ## 17
 ### Soal
-
+> Granz Channel memiliki beberapa endpoint yang harus ditesting sebanyak 100 request dengan 10 request/second. Tambahkan response dan hasil testing pada grimoire. Untuk GET /api/me
 ### Script
-
+Dapatkan tokennya terlebih dahulu sebelum mengakses endpoint `/api/me`
+```bash
+curl -X POST -H "Content-Type: application/json" -d @login.json http://10.131.4.2:8003/api/auth/login > login_output.txt
+```
+Setelah mendapatkan token, lakukan `Apache Benchmark` pada salah satu worker yaitu `Revolte` sebagai berikut
+```bash
+ab -n 100 -c 10 -H "Authorization: Bearer [token yang telah didapatkan]" -r -k "http://riegel.canyon.d27.com/api/me"
+```
 ## 18
 ### Soal
 > Untuk memastikan ketiganya bekerja sama secara adil untuk mengatur Granz Channel maka implementasikan Proxy Bind pada Eisen untuk mengaitkan IP dari Frieren, Flamme, dan Fern.
