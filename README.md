@@ -789,8 +789,9 @@ proxy_set_header X-Forwarded-Proto $scheme;
 
 ## 12
 ### Soal
-
+> Selanjutnya LB ini hanya boleh diakses oleh client dengan IP [Prefix IP].3.69, [Prefix IP].3.70, [Prefix IP].4.167, dan [Prefix IP].4.168.
 ### Script
+Tambahkan beberapa konfigurasi di nginx sebagai berikut
 ```bash
 location / {
     allow 192.173.3.69;
@@ -802,6 +803,20 @@ location / {
 }
 ```
 ### Output
+#### IP Allow
+Disini kami menggunakan Revolte sebagai Client dengan IP `10.31.3.70` dengan cara melakukan fixed address pada DHCP Server sebagai berikut
+```bash
+host Revolte {
+      hardware ethernet 46:7e:fd:e3:87:76;
+      fixed-address 10.31.3.70;
+}
+```
+![Screenshot 2023-11-18 182413](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/524a24b5-2d0c-4696-bacd-790ca9e852a1)
+
+#### IP Deny
+Jika Client tidak menggunakan IP seperti `92.173.3.69` ,`192.173.3.70`, `192.173.4.167`, dan `192.173.4.168` maka akan muncul sebagai berikut
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/6400200f-8623-472f-b298-52167bc7ab51)
+
 ## 13
 ### Soal
 > Semua data yang diperlukan, diatur pada Denken dan harus dapat diakses oleh Frieren, Flamme, dan Fern.
