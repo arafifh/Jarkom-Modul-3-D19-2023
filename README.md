@@ -1189,3 +1189,4 @@ pm.max_spare_servers = 20' > /etc/php/8.0/fpm/pool.d/www.conf
 service php8.0-fpm restart
 ```
 ### Output
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/befcee8e-44d6-4d34-b03f-22bbaf8905a1)
