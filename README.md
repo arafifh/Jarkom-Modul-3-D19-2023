@@ -984,6 +984,8 @@ Setelah itu, kami menggunakan `Apache Benchmark` pada salah satu worker yaitu `R
 ```bash
 ab -n 100 -c 10 -p register.json -T application/json http://10.31.4.2:8003/api/auth/register
 ```
+### Output
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/02f6350d-7d3c-42a7-ba0d-8a18d9fca2bd)
 
 ## 16
 ### Soal
@@ -993,6 +995,8 @@ Kami menggunakan `Apache Benchmark` pada salah satu worker yaitu `Revolte` sebag
 ```bash
 ab -n 100 -c 10 -p login.json -T application/json http://10.31.4.2:8003/api/auth/login
 ```
+### Output
+
 ## 17
 ### Soal
 > Granz Channel memiliki beberapa endpoint yang harus ditesting sebanyak 100 request dengan 10 request/second. Tambahkan response dan hasil testing pada grimoire. Untuk GET /api/me
@@ -1005,6 +1009,8 @@ Setelah mendapatkan token, lakukan `Apache Benchmark` pada salah satu worker yai
 ```bash
 ab -n 100 -c 10 -H "Authorization: Bearer [token yang telah didapatkan]" -r -k "http://riegel.canyon.d27.com/api/me"
 ```
+### Output
+
 ## 18
 ### Soal
 > Untuk memastikan ketiganya bekerja sama secara adil untuk mengatur Granz Channel maka implementasikan Proxy Bind pada Eisen untuk mengaitkan IP dari Frieren, Flamme, dan Fern.
