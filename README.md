@@ -821,6 +821,7 @@ Jika Client tidak menggunakan IP seperti `92.173.3.69` ,`192.173.3.70`, `192.173
 ### Soal
 > Semua data yang diperlukan, diatur pada Denken dan harus dapat diakses oleh Frieren, Flamme, dan Fern.
 ### Script
+Lakukan konfigurasi pada Databases Server yaitu `Denken` dengan cara seperti berikut.
 ```
 echo '
 [mysqld]
@@ -841,6 +842,7 @@ exit
 
 ### Output
 ![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/4c42b067-dd53-474f-8f1c-e45d49928c48)
+
 Lakukan pengecekan database pada salah satu Laravel Worker dengan cara sebagai berikut
 ```bash
 mariadb --host=10.31.2.3 --port=3306   --user=kelompokd19 --password=passwordd19 dbkelompokd19 -e "SHOW DATABASES;"
