@@ -1011,6 +1011,7 @@ Setelah mendapatkan token, lakukan `Apache Benchmark` pada salah satu worker yai
 ab -n 100 -c 10 -H "Authorization: Bearer [token yang telah didapatkan]" -r -k "http://riegel.canyon.d27.com/api/me"
 ```
 ### Output
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/85806d01-f534-47cf-bc08-ae9c84e15c16)
 
 ## 18
 ### Soal
@@ -1041,6 +1042,8 @@ Setelah itu, lakukan testing pada client Revolte dengan menjalankan perintah ber
 ab -n 100 -c 10 -p login.json -T application/json http://www.riegel.canyon.d19.com/api/auth/login
 ```
 ### Output
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/1721840c-5611-4d1b-ad05-706a13713428)
+
 ## 19
 ### Soal
 > Untuk meningkatkan performa dari Worker, coba implementasikan PHP-FPM pada Frieren, Flamme, dan Fern. Untuk testing kinerja naikkan -> pm.max_children, pm.start_servers, pm.min_spare_servers, pm.max_spare_servers sebanyak tiga percobaan dan lakukan testing sebanyak 100 request dengan 10 request/second kemudian berikan hasil analisisnya pada Grimoire.
@@ -1067,6 +1070,8 @@ pm.max_spare_servers = 3' > /etc/php/8.0/fpm/pool.d/www.conf
 
 service php8.0-fpm restart
 ```
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/e4a77aca-654a-4795-a819-6baec2e41d0b)
+
 #### Script 2
 ```bash
 echo '[www]
@@ -1088,6 +1093,8 @@ pm.max_spare_servers = 10' > /etc/php/8.0/fpm/pool.d/www.conf
 
 service php8.0-fpm restart
 ```
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/0f420175-fca6-4fff-a741-8e24ae771598)
+
 #### Script 3
 ```bash
 echo '[www]
@@ -1109,6 +1116,9 @@ pm.max_spare_servers = 15' > /etc/php/8.0/fpm/pool.d/www.conf
 
 service php8.0-fpm restart
 ```
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/1b96e71f-3ea7-4b52-af3f-f31cc075e148)
+
+
 #### Script 4
 ```
 echo '[www]
@@ -1130,7 +1140,8 @@ pm.max_spare_servers = 20' > /etc/php/8.0/fpm/pool.d/www.conf
 
 service php8.0-fpm restart
 ```
-### Output
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/befcee8e-44d6-4d34-b03f-22bbaf8905a1)
+
 ## 20
 ### Soal
 > Nampaknya hanya menggunakan PHP-FPM tidak cukup untuk meningkatkan performa dari worker maka implementasikan Least-Conn pada Eisen. Untuk testing kinerja dari worker tersebut dilakukan sebanyak 100 request dengan 10 request/second.
