@@ -864,11 +864,12 @@ cd var/www
 git clone https://github.com/martuafernando/laravel-praktikum-jarkom
 
 cd laravel-praktikum-jarkom
-```
-
-```bash
 composer install
 composer update
+```
+Setelah melakukan setup dan clone pada resource tersebut, beri konfigurasi pada `Laravel Worker` seperti berikut.
+
+```bash
 
 cp .env.example .env
 
@@ -937,16 +938,53 @@ php artisan db:seed --class=AiringsTableSeeder
 php artisan key:generate
 php artisan jwt:secret
 ```
+Setelah itu, konfigurasikanlah nginx seperti berikut.
+```bash
+echo 'server {
+    listen 8001;
+    root /var/www/laravel-praktikum-jarkom/public;
+    index index.php index.html index.htm;
+    server_name _;
+    
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    # pass PHP scripts to FastCGI server
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
+    }
+    location ~ /\.ht {
+        deny all;   
+    }
+    error_log /var/log/nginx/granz_error.log;
+    access_log /var/log/nginx/granz_access.log;
+}' > /etc/nginx/sites-available/jarkom
 
-
+# 8001 Fern 
+# 8002 Flamme
+# 8003 Frieren
+```
 ### Output
-```
+![image](https://github.com/arafifh/Jarkom-Modul-3-D19-2023/assets/71255346/8be0e50c-fb62-4564-b357-9e20c4157f07)
 
-```
 ## 15
 ### Soal
+> Granz Channel memiliki beberapa endpoint yang harus ditesting sebanyak 100 request dengan 10 request/second. Tambahkan response dan hasil testing pada grimoire. Untuk POST /api/auth/register
 ### Script
-### Output
+Kami menggunakan file .json yang akan digunakan sebagai body yang akan dikirim pada endpoint `/api/auth/register` sebagai berikut
+```bash
+echo '
+{
+  "username": "kelompokD19",
+  "password": "passwordD19"
+}' > register.json
+```
+Setelah itu, kami menggunakan `Apache Benchmark` pada salah satu worker yaitu `Revolte` sebagai berikut
+```bash
+ab -n 100 -c 10 -p register.json -T application/json http://10.31.4.2:8003/api/auth/register
+```
+
 ## 16
 ### Soal
 ### Script
